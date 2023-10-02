@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/country_nav"
+    app:startDestination="@id/countriesFragment">
+
+    <fragment
+        android:id="@+id/countriesFragment"
+        android:name="com.example.kotlincountries.view.CountriesFragment"
+        android:label="fragment_country"
+        tools:layout="@layout/fragment_country" >
+        <action
+            android:id="@+id/action_countriesFragment_to_showCountryFragment"
+            app:destination="@id/showCountryFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/showCountryFragment"
+        android:name="com.example.kotlincountries.view.ShowCountryFragment"
+        android:label="fragment_show_country"
+        tools:layout="@layout/fragment_show_country" >
+        <action
+            android:id="@+id/action_showCountryFragment_to_countriesFragment"
+            app:destination="@id/countriesFragment" />
+        <argument
+            android:name="uuid"
+            app:argType="integer"
+            android:defaultValue="0" />
+    </fragment>
+</navigation>
