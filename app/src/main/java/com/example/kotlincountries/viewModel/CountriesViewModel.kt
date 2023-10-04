@@ -79,11 +79,11 @@ class CountriesViewModel(application: Application) : BaseViewModel(application) 
         launch {
             val dao = CountryDatabase(getApplication()).countryDao()
             dao.deleteAllCountries()
-            val listLong = dao.insertAll(*list.toTypedArray())  // individual -> tek tek
+            val longList = dao.insertAll(*list.toTypedArray())  // individual -> tek tek
             var i = 0
 
             while (i < list.size) {
-                list[i].uuid = listLong[i].toInt()
+                list[i].uuid = longList[i].toInt()
                 i++
             }
             showCountries(list)

@@ -8,11 +8,10 @@ import androidx.preference.PreferenceManager
 class CustomSharedPreferences {
 
     companion object {
+
         private const val PREFERENCES_TIME = "Time"
         private var sharedPreferences: SharedPreferences? = null
-
         @Volatile private var instance: CustomSharedPreferences? = null
-
         private val lock = Any()
 
         operator fun invoke(context: Context): CustomSharedPreferences =
@@ -30,7 +29,7 @@ class CustomSharedPreferences {
 
     fun saveTime(time: Long) {
         sharedPreferences?.edit(commit = true) {
-            this.putLong(PREFERENCES_TIME, time)
+            putLong(PREFERENCES_TIME, time)
         }
     }
 

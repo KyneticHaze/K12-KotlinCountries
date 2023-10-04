@@ -27,7 +27,6 @@ abstract class CountryDatabase : RoomDatabase() {
             context.applicationContext,
             CountryDatabase::class.java,
             "CountryDatabase")
-            .addTypeConverter(CountryConverter::class)
             .build()
     }
 }

@@ -9,7 +9,7 @@ import com.example.kotlincountries.model.Country
 interface CountryDao {
 
     @Insert
-    suspend fun insertAll(vararg country: Country): List<Long>
+    suspend fun insertAll(vararg countries: Country): List<Long>
     /*
     Insert -> Insert Into
     suspend -> coroutine, pause, resume
