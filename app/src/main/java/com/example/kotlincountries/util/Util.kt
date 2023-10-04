@@ -2,6 +2,7 @@ package com.example.kotlincountries.util
 
 import android.content.Context
 import android.widget.ImageView
+import androidx.databinding.BindingAdapter
 import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
@@ -27,4 +28,8 @@ fun placeholderProgressBar(context: Context): CircularProgressDrawable {
         this.centerRadius = 40f
         start()
     }
+}
+@BindingAdapter("android:downloadImage")
+fun downloadImage(view: ImageView, url: String?) {
+    view.getImageWithGlide(url, placeholderProgressBar(view.context))
 }
