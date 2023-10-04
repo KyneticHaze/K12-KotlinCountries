@@ -1,8 +1,10 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
-    id("kotlin-kapt")
     id("androidx.navigation.safeargs.kotlin")
+    id("kotlin-kapt")
+    id("kotlin-android")
+    id("com.google.devtools.ksp")
 }
 
 android {
@@ -66,7 +68,7 @@ dependencies {
     //Room
     implementation ("androidx.room:room-runtime:$roomVersion")
     annotationProcessor("androidx.room:room-compiler:$roomVersion")
-    kapt ("androidx.room:room-compiler:$roomVersion")
+    ksp ("androidx.room:room-compiler:$roomVersion")
     implementation ("androidx.room:room-ktx:$roomVersion")
     implementation("androidx.room:room-rxjava3:$roomVersion")
 
@@ -90,6 +92,4 @@ dependencies {
     implementation ("com.github.bumptech.glide:glide:$glideVersion")
 
     implementation ("androidx.preference:preference-ktx:$preferencesVersion")
-
-
 }
