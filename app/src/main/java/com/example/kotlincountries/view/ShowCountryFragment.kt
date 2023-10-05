@@ -9,8 +9,6 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProviders
 import com.example.kotlincountries.R
 import com.example.kotlincountries.databinding.FragmentShowCountryBinding
-import com.example.kotlincountries.util.getImageWithGlide
-import com.example.kotlincountries.util.placeholderProgressBar
 import com.example.kotlincountries.viewModel.ShowCountryViewModel
 
 class ShowCountryFragment : Fragment() {
@@ -46,17 +44,6 @@ class ShowCountryFragment : Fragment() {
         viewModel.countryLiveData.observe(viewLifecycleOwner) {country ->
             country?.let {
                 dataBinding.selectedCountry = it
-
-                /*
-                dataBinding.countryName.text = country.countryName
-                dataBinding.countryCapital.text = country.countryCapital
-                dataBinding.countryRegion.text = country.countryRegion
-                dataBinding.countryLanguage.text = country.countryLanguage
-                dataBinding.countryCurrency.text = country.countryCurrency
-                context?.let {
-                    dataBinding.countryImage.getImageWithGlide(country.imageUrl, placeholderProgressBar(it))
-                }
-                 */
             }
         }
     }
