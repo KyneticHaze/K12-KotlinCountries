@@ -17,13 +17,11 @@ class CountryAdapter(private val countryList: ArrayList<Country>):
         CountryClickListener
 {
 
-    inner class CountryViewHolder(var view: ItemCountryBinding) : RecyclerView.ViewHolder(view.root) {
-
-    }
+    class CountryViewHolder(var view: ItemCountryBinding) : RecyclerView.ViewHolder(view.root)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CountryViewHolder {
         val inflater = LayoutInflater.from(parent.context)
-        val view = DataBindingUtil.inflate<ItemCountryBinding>(inflater, R.layout.item_country,parent,false)
+        val view = DataBindingUtil.inflate<ItemCountryBinding>(inflater, R.layout.item_country, parent, false)
         return CountryViewHolder(view)
     }
 
@@ -32,21 +30,7 @@ class CountryAdapter(private val countryList: ArrayList<Country>):
     }
 
     override fun onBindViewHolder(holder: CountryViewHolder, position: Int) {
-        /*
-                holder.view.country.text = countryList[position].countryName
-        holder.view.region.text = countryList[position].countryRegion
-        holder.view.imageView.getImageWithGlide(countryList[position].imageUrl,
-            placeholderProgressBar(holder.itemView.context)
-        )
-
-        holder.itemView.setOnClickListener {
-            val action = CountriesFragmentDirections.actionCountriesFragmentToShowCountryFragment(countryList[position].uuid)
-            Navigation.findNavController(it).navigate(action)
-        }
-         */
-
-        var country = holder.view.getCountry()
-        country = countryList[position]
+        holder.view.countries = countryList[position]
         holder.view.listener = this
     }
 
